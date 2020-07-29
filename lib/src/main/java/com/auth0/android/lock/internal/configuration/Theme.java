@@ -54,7 +54,7 @@ public class Theme implements Parcelable {
     private final int primaryColor;
     private final int darkPrimaryColor;
 
-    private Theme(int headerTitle, int headerLogo, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor) {
+    public Theme(int headerTitle, int headerLogo, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor) {
         this.headerTitle = headerTitle;
         this.headerLogo = headerLogo;
         this.headerColor = headerColor;
@@ -64,7 +64,7 @@ public class Theme implements Parcelable {
     }
 
     @SuppressLint("ResourceType")
-    private String resolveStringResource(Context context, @StringRes int res, @AttrRes int attrName) {
+    public String resolveStringResource(Context context, @StringRes int res, @AttrRes int attrName) {
         if (res > 0) {
             return context.getString(res);
         }
@@ -76,7 +76,7 @@ public class Theme implements Parcelable {
 
     @SuppressLint("ResourceType")
     @ColorInt
-    private int resolveColorResource(Context context, @ColorRes int res, @AttrRes int attrName) {
+    public int resolveColorResource(Context context, @ColorRes int res, @AttrRes int attrName) {
         if (res > 0) {
             return ContextCompat.getColor(context, res);
         }
@@ -87,7 +87,7 @@ public class Theme implements Parcelable {
     }
 
     @SuppressLint("ResourceType")
-    private Drawable resolveDrawableResource(Context context, @DrawableRes int res, @AttrRes int attrName) {
+    public Drawable resolveDrawableResource(Context context, @DrawableRes int res, @AttrRes int attrName) {
         if (res > 0) {
             return ContextCompat.getDrawable(context, res);
         }
