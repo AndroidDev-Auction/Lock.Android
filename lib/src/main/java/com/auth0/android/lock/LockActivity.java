@@ -141,6 +141,7 @@ public class LockActivity extends AppCompatActivity implements ActivityCompat.On
         lockView = new ClassicLockView(this, lockBus, options.getTheme());
         RelativeLayout.LayoutParams lockViewParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         lockView.setLayoutParams(lockViewParams);
+        lockView.setBackgroundColor(options.getTheme().getBackgroundColor(this));
         rootView.addView(lockView);
 
         loginErrorBuilder = new LoginErrorMessageBuilder(R.string.com_auth0_lock_db_login_error_message, R.string.com_auth0_lock_db_login_error_invalid_credentials_message);

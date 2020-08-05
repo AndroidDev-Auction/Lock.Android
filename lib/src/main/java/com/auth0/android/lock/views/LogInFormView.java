@@ -83,6 +83,7 @@ public class LogInFormView extends FormView implements TextView.OnEditorActionLi
         changePasswordBtn.setTextColor(ContextCompat.getColor(getContext(),android.R.color.white));
         enterpriseBtn = findViewById(R.id.com_auth0_lock_enterprise_button);
         topMessage = findViewById(R.id.com_auth0_lock_text);
+        topMessage.setTextColor(ContextCompat.getColor(getContext(),android.R.color.white));
         Configuration configuration = lockWidget.getConfiguration();
         domainParser = new EnterpriseConnectionMatcher(configuration.getEnterpriseConnections());
         usernameInput = findViewById(R.id.com_auth0_lock_input_username);
