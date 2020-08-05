@@ -25,6 +25,7 @@
 package com.auth0.android.lock.internal.configuration;
 
 import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -60,6 +61,7 @@ public class Options implements Parcelable {
     private static final String SCOPE_KEY = "scope";
     private static final String DEVICE_KEY = "device";
     private static final String SCOPE_OFFLINE_ACCESS = "offline_access";
+    public static Drawable BUTTON_DRAWABLE = null;
 
     private Auth0 account;
     private boolean useBrowser;
@@ -301,6 +303,7 @@ public class Options implements Parcelable {
     }
 
     public void withTheme(Theme theme) {
+        BUTTON_DRAWABLE = theme.getBtnDrawable();
         this.theme = theme;
     }
 
