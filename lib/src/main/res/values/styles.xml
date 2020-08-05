@@ -339,7 +339,7 @@
 
     <style name="Lock.Theme.Widget.SubmitButton">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">100dp</item>
         <item name="android:background">@color/com_auth0_lock_submit_disabled</item>
     </style>
 
