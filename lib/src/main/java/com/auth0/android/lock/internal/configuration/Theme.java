@@ -292,8 +292,8 @@ public class Theme implements Parcelable {
             return this;
         }
 
-        public Builder withBtnDrawable(Drawable btnDrawable) {
-            this.btnDrawable = btnDrawable;
+        public Builder withBtnDrawable(Drawable drawable) {
+            btnDrawable = drawable;
             return this;
         }
 
