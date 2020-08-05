@@ -37,6 +37,7 @@ import android.widget.TextView;
 
 import com.auth0.android.lock.R;
 import com.auth0.android.lock.internal.configuration.Theme;
+import com.squareup.picasso.Picasso;
 
 @SuppressLint("ViewConstructor")
 public class HeaderView extends RelativeLayout {
@@ -55,10 +56,11 @@ public class HeaderView extends RelativeLayout {
         logo = findViewById(R.id.com_auth0_lock_header_logo);
         text = findViewById(R.id.com_auth0_lock_header_text);
         header.setBackgroundColor(lockTheme.getHeaderColor(getContext()));
-        logo.setImageDrawable(lockTheme.getHeaderLogo(getContext()));
-        if(lockTheme.getHeaderLogoUrl()!=null){
-            logo.setImageURI(Uri.parse(lockTheme.getHeaderLogoUrl()));
-        }
+        Picasso.get()
+                .load(lockTheme.getHeaderLogoUrl())
+                .placeholder(lockTheme.getHeaderLogo(getContext()))
+                .error(lockTheme.getHeaderLogo(getContext()))
+                .into(logo);
         text.setText(lockTheme.getHeaderTitle(getContext()));
         text.setTextColor(lockTheme.getHeaderTitleColor(getContext()));
     }
