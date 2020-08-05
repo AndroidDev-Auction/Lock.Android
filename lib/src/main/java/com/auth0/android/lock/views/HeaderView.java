@@ -30,6 +30,8 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+
+import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -56,6 +58,9 @@ public class HeaderView extends RelativeLayout {
         text = findViewById(R.id.com_auth0_lock_header_text);
         header.setBackgroundColor(lockTheme.getHeaderColor(getContext()));
         logo.setImageDrawable(lockTheme.getHeaderLogo(getContext()));
+        if(lockTheme.getHeaderLogoUrl()!=null){
+            logo.setImageURI(Uri.parse(lockTheme.getHeaderLogoUrl()));
+        }
         text.setText(lockTheme.getHeaderTitle(getContext()));
         text.setTextColor(lockTheme.getHeaderTitleColor(getContext()));
     }
