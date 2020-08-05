@@ -42,6 +42,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.auth0.android.lock.R;
@@ -54,6 +55,7 @@ public class ActionButton extends FrameLayout {
     private ProgressBar progress;
     private ImageView icon;
     private LinearLayout labeledLayout;
+    private RelativeLayout btnMainLayout;
     private TextView title;
     private boolean shouldShowLabel;
 
@@ -68,11 +70,13 @@ public class ActionButton extends FrameLayout {
         progress.setVisibility(View.GONE);
         icon = findViewById(R.id.com_auth0_lock_icon);
         labeledLayout = findViewById(R.id.com_auth0_lock_labeled);
+        btnMainLayout = findViewById(R.id.btn_main_layout);
         title = findViewById(R.id.com_auth0_lock_title);
 
         ViewUtils.setBackground(icon, generateStateBackground(lockTheme));
         ViewUtils.setBackground(labeledLayout, generateStateBackground(lockTheme));
-        labeledLayout.setBackgroundColor(lockTheme.getBackgroundColor(getContext()));
+        labeledLayout.setBackgroundColor(lockTheme.getButtonColor(getContext()));
+        btnMainLayout.setBackgroundColor(lockTheme.getButtonColor(getContext()));
         showLabel(false);
         icon.setFocusable(true);
         icon.setFocusableInTouchMode(false);
