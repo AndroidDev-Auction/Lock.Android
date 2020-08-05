@@ -26,6 +26,7 @@ package com.auth0.android.lock.views;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -56,7 +57,7 @@ public class LogInFormView extends FormView implements TextView.OnEditorActionLi
     private ValidatedUsernameInputView usernameInput;
     private ValidatedInputView passwordInput;
     private SocialButton enterpriseBtn;
-    private View changePasswordBtn;
+    private LinkTextView changePasswordBtn;
     private TextView topMessage;
     private OAuthConnection currentConnection;
     private String currentUsername;
@@ -79,6 +80,7 @@ public class LogInFormView extends FormView implements TextView.OnEditorActionLi
     private void init() {
         inflate(getContext(), R.layout.com_auth0_lock_login_form_view, this);
         changePasswordBtn = findViewById(R.id.com_auth0_lock_change_password_btn);
+        changePasswordBtn.setTextColor(ContextCompat.getColor(getContext(),R.color.design_default_color_primary));
         enterpriseBtn = findViewById(R.id.com_auth0_lock_enterprise_button);
         topMessage = findViewById(R.id.com_auth0_lock_text);
         Configuration configuration = lockWidget.getConfiguration();

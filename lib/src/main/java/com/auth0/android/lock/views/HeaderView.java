@@ -26,6 +26,7 @@ package com.auth0.android.lock.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
@@ -55,6 +56,9 @@ public class HeaderView extends RelativeLayout {
         text = findViewById(R.id.com_auth0_lock_header_text);
         header.setBackgroundColor(lockTheme.getHeaderColor(getContext()));
         logo.setImageDrawable(lockTheme.getHeaderLogo(getContext()));
+        if(lockTheme.getHeaderLogoUrl()!=null){
+            logo.setImageURI(Uri.parse(lockTheme.getHeaderLogoUrl()));
+        }
         text.setText(lockTheme.getHeaderTitle(getContext()));
         text.setTextColor(lockTheme.getHeaderTitleColor(getContext()));
     }
