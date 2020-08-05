@@ -54,8 +54,10 @@ public class Theme implements Parcelable {
     private final int headerTitleColor;
     private final int primaryColor;
     private final int darkPrimaryColor;
+    private final int buttonColor;
+    private final int backgroundColor;
 
-    public Theme(int headerTitle, int headerLogo, String headerLogoUrl, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor) {
+    public Theme(int headerTitle, int headerLogo, String headerLogoUrl, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor, int buttonColor,int backgroundColor) {
         this.headerTitle = headerTitle;
         this.headerLogo = headerLogo;
         this.headerLogoUrl = headerLogoUrl;
@@ -63,6 +65,8 @@ public class Theme implements Parcelable {
         this.headerTitleColor = headerTitleColor;
         this.primaryColor = primaryColor;
         this.darkPrimaryColor = darkPrimaryColor;
+        this.buttonColor = buttonColor;
+        this.backgroundColor = backgroundColor;
     }
 
     @SuppressLint("ResourceType")
@@ -133,6 +137,16 @@ public class Theme implements Parcelable {
         return resolveColorResource(context, darkPrimaryColor, R.attr.Auth0_DarkPrimaryColor);
     }
 
+    @ColorInt
+    public int getButtonColor(Context context) {
+        return resolveColorResource(context, buttonColor, R.attr.Auth0_DarkPrimaryColor);
+    }
+
+    @ColorInt
+    public int getBackgroundColor(Context context) {
+        return resolveColorResource(context, backgroundColor, R.attr.Auth0_HeaderTitleColor);
+    }
+
     int getCustomHeaderTitleRes() {
         return headerTitle;
     }
@@ -161,6 +175,14 @@ public class Theme implements Parcelable {
         return darkPrimaryColor;
     }
 
+    int getButtonColor() {
+        return buttonColor;
+    }
+
+    int getBackgroundColor() {
+        return backgroundColor;
+    }
+
     protected Theme(@NonNull Parcel in) {
         headerTitle = in.readInt();
         headerLogo = in.readInt();
@@ -169,6 +191,8 @@ public class Theme implements Parcelable {
         headerTitleColor = in.readInt();
         primaryColor = in.readInt();
         darkPrimaryColor = in.readInt();
+        buttonColor = in.readInt();
+        backgroundColor = in.readInt();
     }
 
     @Override
@@ -185,6 +209,8 @@ public class Theme implements Parcelable {
         dest.writeInt(headerTitleColor);
         dest.writeInt(primaryColor);
         dest.writeInt(darkPrimaryColor);
+        dest.writeInt(buttonColor);
+        dest.writeInt(backgroundColor);
     }
 
     public static final Parcelable.Creator<Theme> CREATOR = new Parcelable.Creator<Theme>() {
@@ -213,6 +239,8 @@ public class Theme implements Parcelable {
         private int headerTitleColorRes;
         private int primaryColorRes;
         private int darkPrimaryColorRes;
+        private int buttonColor;
+        private int backgroundColor;
 
         public Builder withHeaderTitle(@StringRes int title) {
             headerTitleRes = title;
@@ -249,8 +277,18 @@ public class Theme implements Parcelable {
             return this;
         }
 
+        public Builder withButtonColor(@ColorRes int darkPrimary) {
+            buttonColor = darkPrimary;
+            return this;
+        }
+
+        public Builder withBackgroundColor(@ColorRes int darkPrimary) {
+            backgroundColor = darkPrimary;
+            return this;
+        }
+
         public Theme build() {
-            return new Theme(headerTitleRes, headerLogoRes, headerLogoUrl, headerColorRes, headerTitleColorRes, primaryColorRes, darkPrimaryColorRes);
+            return new Theme(headerTitleRes, headerLogoRes, headerLogoUrl, headerColorRes, headerTitleColorRes, primaryColorRes, darkPrimaryColorRes, buttonColor, backgroundColor);
         }
     }
 }
