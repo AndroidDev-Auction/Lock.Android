@@ -74,8 +74,9 @@ public class ActionButton extends FrameLayout {
 
         ViewUtils.setBackground(icon, generateStateBackground(lockTheme));
         ViewUtils.setBackground(labeledLayout, generateStateBackground(lockTheme));
-        labeledLayout.setBackgroundColor(lockTheme.getButtonColor(getContext()));
-        btnMainLayout.setBackgroundColor(lockTheme.getButtonColor(getContext()));
+        if (lockTheme.getBtnDrawable() != null) {
+            labeledLayout.setBackgroundDrawable(lockTheme.getBtnDrawable());
+        }
         showLabel(false);
         icon.setFocusable(true);
         icon.setFocusableInTouchMode(false);
