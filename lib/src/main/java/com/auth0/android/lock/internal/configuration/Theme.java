@@ -47,17 +47,18 @@ import com.auth0.android.lock.R;
  */
 public class Theme implements Parcelable {
 
-    private final int headerTitle;
-    private final int headerLogo;
-    private final String headerLogoUrl;
-    private final int headerColor;
-    private final int headerTitleColor;
-    private final int primaryColor;
-    private final int darkPrimaryColor;
-    private final int buttonColor;
-    private final int backgroundColor;
+    private int headerTitle;
+    private int headerLogo;
+    private String headerLogoUrl;
+    private int headerColor;
+    private int headerTitleColor;
+    private int primaryColor;
+    private int darkPrimaryColor;
+    private int buttonColor;
+    private int backgroundColor;
+    private Drawable btnDrawable;
 
-    public Theme(int headerTitle, int headerLogo, String headerLogoUrl, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor, int buttonColor,int backgroundColor) {
+    public Theme(int headerTitle, int headerLogo, String headerLogoUrl, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor, int buttonColor,int backgroundColor,Drawable btnDrawable) {
         this.headerTitle = headerTitle;
         this.headerLogo = headerLogo;
         this.headerLogoUrl = headerLogoUrl;
@@ -67,6 +68,7 @@ public class Theme implements Parcelable {
         this.darkPrimaryColor = darkPrimaryColor;
         this.buttonColor = buttonColor;
         this.backgroundColor = backgroundColor;
+        this.btnDrawable = btnDrawable;
     }
 
     @SuppressLint("ResourceType")
@@ -145,6 +147,10 @@ public class Theme implements Parcelable {
     @ColorInt
     public int getBackgroundColor(Context context) {
         return resolveColorResource(context, backgroundColor, R.attr.Auth0_HeaderTitleColor);
+    }
+
+    public Drawable getBtnDrawable() {
+        return btnDrawable;
     }
 
     int getCustomHeaderTitleRes() {
@@ -241,6 +247,7 @@ public class Theme implements Parcelable {
         private int darkPrimaryColorRes;
         private int buttonColor;
         private int backgroundColor;
+        private Drawable btnDrawable;
 
         public Builder withHeaderTitle(@StringRes int title) {
             headerTitleRes = title;
@@ -287,8 +294,13 @@ public class Theme implements Parcelable {
             return this;
         }
 
+        public Builder withBtnDrawable(Drawable btnDrawable) {
+            this.btnDrawable = btnDrawable;
+            return this;
+        }
+
         public Theme build() {
-            return new Theme(headerTitleRes, headerLogoRes, headerLogoUrl, headerColorRes, headerTitleColorRes, primaryColorRes, darkPrimaryColorRes, buttonColor, backgroundColor);
+            return new Theme(headerTitleRes, headerLogoRes, headerLogoUrl, headerColorRes, headerTitleColorRes, primaryColorRes, darkPrimaryColorRes, buttonColor, backgroundColor, btnDrawable);
         }
     }
 }
