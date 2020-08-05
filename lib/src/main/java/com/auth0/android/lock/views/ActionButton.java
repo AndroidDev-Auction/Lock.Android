@@ -48,6 +48,8 @@ import android.widget.TextView;
 import com.auth0.android.lock.R;
 import com.auth0.android.lock.internal.configuration.Theme;
 
+import static com.auth0.android.lock.internal.configuration.Options.BUTTON_DRAWABLE;
+
 @SuppressLint("ViewConstructor")
 public class ActionButton extends FrameLayout {
 
@@ -75,8 +77,8 @@ public class ActionButton extends FrameLayout {
 
         ViewUtils.setBackground(icon, generateStateBackground(lockTheme));
         ViewUtils.setBackground(labeledLayout, generateStateBackground(lockTheme));
-        if (lockTheme.getBtnDrawable() != null) {
-            labeledLayout.setBackgroundDrawable(lockTheme.getBtnDrawable());
+        if (BUTTON_DRAWABLE != null) {
+            labeledLayout.setBackgroundDrawable(BUTTON_DRAWABLE);
         }
         showLabel(false);
         icon.setFocusable(true);
