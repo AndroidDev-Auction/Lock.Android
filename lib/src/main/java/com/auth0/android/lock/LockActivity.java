@@ -29,6 +29,8 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -148,7 +150,7 @@ public class LockActivity extends AppCompatActivity implements ActivityCompat.On
         lockView = new ClassicLockView(this, lockBus, options.getTheme());
         RelativeLayout.LayoutParams lockViewParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         lockView.setLayoutParams(lockViewParams);
-        lockView.setBackgroundColor(options.getTheme().getBackgroundColor(this));
+        lockView.setBackgroundColor(Color.parseColor(options.getTheme().getBackgroundColor(this)));
         rootView.addView(lockView);
 
         loginErrorBuilder = new LoginErrorMessageBuilder(R.string.com_auth0_lock_db_login_error_message, R.string.com_auth0_lock_db_login_error_invalid_credentials_message);
