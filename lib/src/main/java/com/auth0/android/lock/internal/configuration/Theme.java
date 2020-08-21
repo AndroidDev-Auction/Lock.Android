@@ -54,10 +54,10 @@ public class Theme implements Parcelable {
     private int primaryColor;
     private int darkPrimaryColor;
     private int buttonColor;
-    private int backgroundColor;
+    private String backgroundColor;
     private Drawable btnDrawable;
 
-    public Theme(int headerTitle, int headerLogo, String headerLogoUrl, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor, int buttonColor,int backgroundColor,Drawable btnDrawable) {
+    public Theme(int headerTitle, int headerLogo, String headerLogoUrl, int headerColor, int headerTitleColor, int primaryColor, int darkPrimaryColor, int buttonColor,String backgroundColor,Drawable btnDrawable) {
         this.headerTitle = headerTitle;
         this.headerLogo = headerLogo;
         this.headerLogoUrl = headerLogoUrl;
@@ -141,9 +141,8 @@ public class Theme implements Parcelable {
         return resolveColorResource(context, buttonColor, R.attr.Auth0_DarkPrimaryColor);
     }
 
-    @ColorInt
-    public int getBackgroundColor(Context context) {
-        return resolveColorResource(context, backgroundColor, R.attr.Auth0_HeaderTitleColor);
+    public String getBackgroundColor(Context context) {
+        return backgroundColor;
     }
 
     public Drawable getBtnDrawable() {
@@ -182,7 +181,7 @@ public class Theme implements Parcelable {
         return buttonColor;
     }
 
-    int getBackgroundColor() {
+    String getBackgroundColor() {
         return backgroundColor;
     }
 
@@ -195,7 +194,7 @@ public class Theme implements Parcelable {
         primaryColor = in.readInt();
         darkPrimaryColor = in.readInt();
         buttonColor = in.readInt();
-        backgroundColor = in.readInt();
+        backgroundColor = in.readString();
     }
 
     @Override
@@ -213,7 +212,7 @@ public class Theme implements Parcelable {
         dest.writeInt(primaryColor);
         dest.writeInt(darkPrimaryColor);
         dest.writeInt(buttonColor);
-        dest.writeInt(backgroundColor);
+        dest.writeString(backgroundColor);
     }
 
     @SuppressWarnings("unused")
@@ -244,7 +243,7 @@ public class Theme implements Parcelable {
         private int primaryColorRes;
         private int darkPrimaryColorRes;
         private int buttonColor;
-        private int backgroundColor;
+        private String backgroundColor;
         private Drawable btnDrawable;
 
         public Builder withHeaderTitle(@StringRes int title) {
@@ -287,7 +286,7 @@ public class Theme implements Parcelable {
             return this;
         }
 
-        public Builder withBackgroundColor(@ColorRes int darkPrimary) {
+        public Builder withBackgroundColor(String darkPrimary) {
             backgroundColor = darkPrimary;
             return this;
         }
