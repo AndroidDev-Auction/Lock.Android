@@ -1,38 +1,16 @@
-plugins {
-    id "com.auth0.gradle.oss-library.android" version "0.10.0"
-}
-
-logger.lifecycle("Using version ${version} for ${name}")
-
-oss {
-    name 'Lock.Android'
-    repository 'Lock.Android'
-    organization 'auth0'
-    description 'The easiest way of securing your Android mobile apps with Auth0 & Lock'
-
-    developers {
-        auth0 {
-            displayName = 'Auth0'
-            email = 'oss@auth0.com'
-        }
-        lbalmaceda {
-            displayName = 'Luciano Balmaceda'
-            email = 'luciano.balmaceda@auth0.com'
-        }
-    }
-}
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 28
-
+    namespace 'com.auth0.android.lock'
+    compileSdk 35
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion 28
+        targetSdkVersion 35
         versionCode 1
         versionName project.version
         consumerProguardFiles '../proguard/proguard-gson.pro', '../proguard/proguard-otto.pro', '../proguard/proguard-lock-2.pro'
     }
-
     testOptions {
         unitTests {
             includeAndroidResources = true
@@ -41,20 +19,28 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.12.0' // Design support replaced with Material Components
+
+    implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
     implementation 'com.squareup:otto:1.3.8'
     api 'com.auth0.android:auth0:1.24.0'
-    testImplementation 'junit:junit:4.12'
+
+    // Test dependencies
+    testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.hamcrest:hamcrest-library:1.3'
     testImplementation 'org.robolectric:robolectric:4.0.2'
-    testImplementation 'org.mockito:mockito-core:1.10.19'
+    testImplementation 'org.mockito:mockito-core:5.7.0'
     testImplementation 'com.squareup.okhttp3:mockwebserver:3.9.1'
     testImplementation 'com.jayway.awaitility:awaitility:1.7.0'
-    testImplementation 'com.android.support.test.espresso:espresso-intents:3.0.2'
+    testImplementation 'androidx.test.espresso:espresso-intents:3.6.1' // Updated Espresso
+
+    // Picasso remains unchanged
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // AndroidX Activity
+    implementation 'androidx.activity:activity:1.10.0'
 }

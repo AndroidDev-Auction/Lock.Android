@@ -31,11 +31,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Handler;
-import android.support.annotation.CallSuper;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
-import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -68,6 +63,12 @@ import static com.auth0.android.lock.views.ValidatedInputView.DataType.PHONE_NUM
 import static com.auth0.android.lock.views.ValidatedInputView.DataType.TEXT_NAME;
 import static com.auth0.android.lock.views.ValidatedInputView.DataType.USERNAME;
 import static com.auth0.android.lock.views.ValidatedInputView.DataType.USERNAME_OR_EMAIL;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
+import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 
 public class ValidatedInputView extends LinearLayout {
 

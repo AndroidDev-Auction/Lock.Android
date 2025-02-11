@@ -1,12 +1,12 @@
 package com.auth0.android.lock.internal.configuration;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 import static com.auth0.android.lock.internal.configuration.AuthMode.LOG_IN;
 import static com.auth0.android.lock.internal.configuration.AuthMode.SIGN_UP;
+
+import androidx.annotation.IntDef;
 
 @IntDef({LOG_IN, SIGN_UP})
 @Retention(RetentionPolicy.SOURCE)

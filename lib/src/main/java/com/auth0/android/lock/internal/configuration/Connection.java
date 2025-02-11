@@ -1,14 +1,14 @@
 package com.auth0.android.lock.internal.configuration;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import static com.auth0.android.util.CheckHelper.checkArgument;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class Connection implements BaseConnection, DatabaseConnection, OAuthConnection, PasswordlessConnection {
 

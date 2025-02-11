@@ -25,11 +25,12 @@
 package com.auth0.android.lock.views;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.auth0.android.lock.R;
 import com.auth0.android.lock.events.DatabaseChangePasswordEvent;

@@ -1,7 +1,5 @@
 package com.auth0.android.lock.internal.configuration;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -9,6 +7,8 @@ import static com.auth0.android.lock.internal.configuration.AuthType.DATABASE;
 import static com.auth0.android.lock.internal.configuration.AuthType.ENTERPRISE;
 import static com.auth0.android.lock.internal.configuration.AuthType.PASSWORDLESS;
 import static com.auth0.android.lock.internal.configuration.AuthType.SOCIAL;
+
+import androidx.annotation.IntDef;
 
 @IntDef({DATABASE, ENTERPRISE, PASSWORDLESS, SOCIAL})
 @Retention(RetentionPolicy.SOURCE)

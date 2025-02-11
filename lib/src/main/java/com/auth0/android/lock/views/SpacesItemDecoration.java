@@ -1,9 +1,10 @@
 package com.auth0.android.lock.views;
 
 import android.graphics.Rect;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 class SpacesItemDecoration extends RecyclerView.ItemDecoration {
     private final int orientation;

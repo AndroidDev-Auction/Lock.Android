@@ -26,11 +26,6 @@ package com.auth0.android.lock.utils;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -46,6 +41,12 @@ import static com.auth0.android.lock.utils.CustomField.FieldType.TYPE_NUMBER;
 import static com.auth0.android.lock.utils.CustomField.FieldType.TYPE_PHONE_NUMBER;
 import static com.auth0.android.lock.utils.CustomField.Storage.PROFILE_ROOT;
 import static com.auth0.android.lock.utils.CustomField.Storage.USER_METADATA;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 public class CustomField extends SignUpField {
 

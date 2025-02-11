@@ -31,10 +31,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.ColorUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -48,6 +44,11 @@ import com.auth0.android.lock.R;
 import com.auth0.android.lock.internal.configuration.Theme;
 
 import static com.auth0.android.lock.internal.configuration.Options.BUTTON_DRAWABLE;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 
 @SuppressLint("ViewConstructor")
 public class ActionButton extends FrameLayout {
