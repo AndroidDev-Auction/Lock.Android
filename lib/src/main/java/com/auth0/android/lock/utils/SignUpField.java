@@ -2,10 +2,11 @@ package com.auth0.android.lock.utils;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
 
 import static com.auth0.android.lock.utils.CustomField.Storage.PROFILE_ROOT;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
 
 public abstract class SignUpField implements Parcelable {
 

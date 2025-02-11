@@ -25,8 +25,6 @@
 package com.auth0.android.lock.views;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -48,6 +46,9 @@ import com.auth0.android.lock.views.interfaces.IdentityListener;
 import com.auth0.android.lock.views.interfaces.LockWidgetForm;
 
 import static com.auth0.android.lock.views.ValidatedInputView.DataType;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 public class LogInFormView extends FormView implements TextView.OnEditorActionListener, IdentityListener {
 

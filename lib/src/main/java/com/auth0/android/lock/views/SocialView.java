@@ -25,13 +25,14 @@
 package com.auth0.android.lock.views;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.auth0.android.lock.R;
 import com.auth0.android.lock.events.OAuthLoginEvent;
@@ -41,8 +42,6 @@ import com.auth0.android.lock.views.interfaces.LockWidgetOAuth;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.support.v7.widget.RecyclerView.LayoutManager;
 
 @SuppressLint("ViewConstructor")
 public class SocialView extends LinearLayout implements SocialViewAdapter.OAuthListener {
@@ -71,7 +70,7 @@ public class SocialView extends LinearLayout implements SocialViewAdapter.OAuthL
         List<OAuthConnection> connections = lockWidget.getConfiguration().getSocialConnections();
         adapter = new SocialViewAdapter(getContext(), generateAuthConfigs(connections));
         adapter.setCallback(this);
-        LayoutManager lm = new GridLayoutManager(getContext(), 1, VERTICAL, false);
+        RecyclerView.LayoutManager lm = new GridLayoutManager(getContext(), 1, VERTICAL, false);
         recycler.setLayoutManager(lm);
         recycler.setHasFixedSize(true);
         recycler.setAdapter(adapter);

@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.auth0.android.lock.app">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,7 +16,8 @@
         <activity
             android:name=".DemoActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="true"> <!-- Added exported attribute -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,7 +30,8 @@
             android:label="Classic Lock"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyLock.Theme"/>
+            android:theme="@style/MyLock.Theme"
+            android:exported="false"/> <!-- No intent-filter, so exported is not required -->
         <!--Auth0 Lock End-->
 
         <!--Auth0 PasswordlessLock-->
@@ -39,7 +40,8 @@
             android:label="Passwordless Lock"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/MyLock.Theme">
+            android:theme="@style/MyLock.Theme"
+            android:exported="true"> <!-- Added exported attribute -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -58,7 +60,8 @@
         <!--Auth0 Lock Passwordless SMS Country Code Selection-->
         <activity
             android:name="com.auth0.android.lock.CountryCodeActivity"
-            android:theme="@style/Lock.Theme.ActionBar" />
+            android:theme="@style/Lock.Theme.ActionBar"
+            android:exported="false"/> <!-- No intent-filter, so exported is not required -->
         <!--Auth0 Lock Passwordless SMS Country Code Selection-->
 
     </application>

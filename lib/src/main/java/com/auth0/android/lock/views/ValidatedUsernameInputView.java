@@ -26,7 +26,6 @@ package com.auth0.android.lock.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
 import com.auth0.android.lock.R;
@@ -38,6 +37,8 @@ import static com.auth0.android.lock.UsernameStyle.EMAIL;
 import static com.auth0.android.lock.UsernameStyle.USERNAME;
 import static com.auth0.android.lock.internal.configuration.DatabaseConnection.MAX_USERNAME_LENGTH;
 import static com.auth0.android.lock.internal.configuration.DatabaseConnection.MIN_USERNAME_LENGTH;
+
+import androidx.annotation.Nullable;
 
 public class ValidatedUsernameInputView extends ValidatedInputView {
 

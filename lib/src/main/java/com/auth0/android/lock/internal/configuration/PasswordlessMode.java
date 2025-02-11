@@ -24,8 +24,6 @@
 
 package com.auth0.android.lock.internal.configuration;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -34,6 +32,8 @@ import static com.auth0.android.lock.internal.configuration.PasswordlessMode.EMA
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.EMAIL_LINK;
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.SMS_CODE;
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.SMS_LINK;
+
+import androidx.annotation.IntDef;
 
 @IntDef({DISABLED, SMS_LINK, SMS_CODE, EMAIL_LINK, EMAIL_CODE})
 @Retention(RetentionPolicy.SOURCE)

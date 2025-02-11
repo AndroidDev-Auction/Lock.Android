@@ -27,13 +27,14 @@ package com.auth0.android.lock.views;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
 
 import com.auth0.android.lock.R;
 import com.auth0.android.lock.internal.configuration.Theme;

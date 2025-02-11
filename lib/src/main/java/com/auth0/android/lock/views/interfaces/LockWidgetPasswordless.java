@@ -24,7 +24,7 @@
 
 package com.auth0.android.lock.views.interfaces;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 public interface LockWidgetPasswordless extends LockWidgetOAuth {
 

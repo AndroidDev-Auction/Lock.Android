@@ -25,7 +25,6 @@
 package com.auth0.android.lock.views;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -43,6 +42,8 @@ import static com.auth0.android.lock.internal.configuration.PasswordlessMode.EMA
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.EMAIL_LINK;
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.SMS_CODE;
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.SMS_LINK;
+
+import androidx.annotation.Nullable;
 
 @SuppressLint("ViewConstructor")
 public class PasswordlessRequestCodeFormView extends FormView implements View.OnClickListener, TextView.OnEditorActionListener {
