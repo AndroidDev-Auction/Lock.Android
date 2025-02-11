@@ -25,7 +25,6 @@
 package com.auth0.android.lock;
 
 import android.content.Intent;
-import android.support.annotation.IntDef;
 
 import com.auth0.android.lock.utils.LockException;
 
@@ -36,6 +35,8 @@ import static com.auth0.android.lock.LockCallback.LockEvent.AUTHENTICATION;
 import static com.auth0.android.lock.LockCallback.LockEvent.CANCELED;
 import static com.auth0.android.lock.LockCallback.LockEvent.RESET_PASSWORD;
 import static com.auth0.android.lock.LockCallback.LockEvent.SIGN_UP;
+
+import androidx.annotation.IntDef;
 
 /**
  * Callback used by Lock to notify the user of execution results.

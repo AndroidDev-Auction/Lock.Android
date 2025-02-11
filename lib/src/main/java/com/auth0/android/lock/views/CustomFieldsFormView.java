@@ -26,8 +26,6 @@ package com.auth0.android.lock.views;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -47,6 +45,9 @@ import java.util.List;
 import java.util.Map;
 
 import static com.auth0.android.lock.utils.CustomField.Storage;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class CustomFieldsFormView extends FormView implements TextView.OnEditorActionListener {
 

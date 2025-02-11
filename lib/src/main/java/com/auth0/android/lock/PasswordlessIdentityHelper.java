@@ -2,8 +2,6 @@ package com.auth0.android.lock;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.auth0.android.lock.adapters.Country;
 import com.auth0.android.lock.internal.configuration.PasswordlessMode;
@@ -13,6 +11,9 @@ import static com.auth0.android.lock.internal.configuration.PasswordlessMode.EMA
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.EMAIL_LINK;
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.SMS_CODE;
 import static com.auth0.android.lock.internal.configuration.PasswordlessMode.SMS_LINK;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 class PasswordlessIdentityHelper {
     private static final String LAST_PASSWORDLESS_IDENTITY_KEY = "last_passwordless_identity";

@@ -24,14 +24,14 @@
 
 package com.auth0.android.lock;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 import static com.auth0.android.lock.InitialScreen.FORGOT_PASSWORD;
 import static com.auth0.android.lock.InitialScreen.LOG_IN;
 import static com.auth0.android.lock.InitialScreen.SIGN_UP;
+
+import androidx.annotation.IntDef;
 
 @IntDef({LOG_IN, SIGN_UP, FORGOT_PASSWORD})
 @Retention(RetentionPolicy.SOURCE)

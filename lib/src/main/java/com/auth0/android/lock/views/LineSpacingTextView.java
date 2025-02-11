@@ -27,8 +27,9 @@ package com.auth0.android.lock.views;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * TextView that removes the extra padding added in pre Lollipop APIs when

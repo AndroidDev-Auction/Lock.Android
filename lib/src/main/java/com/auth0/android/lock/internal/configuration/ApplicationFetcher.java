@@ -25,8 +25,9 @@
 package com.auth0.android.lock.internal.configuration;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import com.auth0.android.Auth0;
 import com.auth0.android.Auth0Exception;

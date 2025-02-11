@@ -1,7 +1,5 @@
 package com.auth0.android.lock.internal.configuration;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -10,6 +8,8 @@ import static com.auth0.android.lock.internal.configuration.PasswordStrength.FAI
 import static com.auth0.android.lock.internal.configuration.PasswordStrength.GOOD;
 import static com.auth0.android.lock.internal.configuration.PasswordStrength.LOW;
 import static com.auth0.android.lock.internal.configuration.PasswordStrength.NONE;
+
+import androidx.annotation.IntDef;
 
 @IntDef({NONE, LOW, FAIR, GOOD, EXCELLENT})
 @Retention(RetentionPolicy.SOURCE)

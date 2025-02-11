@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.auth0.android.lock">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
         <activity
             android:name="com.auth0.android.provider.RedirectActivity"
+            android:exported="true"
             tools:node="replace">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

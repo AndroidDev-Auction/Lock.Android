@@ -24,14 +24,14 @@
 
 package com.auth0.android.lock;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 import static com.auth0.android.lock.UsernameStyle.DEFAULT;
 import static com.auth0.android.lock.UsernameStyle.EMAIL;
 import static com.auth0.android.lock.UsernameStyle.USERNAME;
+
+import androidx.annotation.IntDef;
 
 @IntDef({DEFAULT, USERNAME, EMAIL})
 @Retention(RetentionPolicy.SOURCE)

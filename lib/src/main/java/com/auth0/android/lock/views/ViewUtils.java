@@ -32,10 +32,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
@@ -51,6 +47,11 @@ import java.util.Locale;
 import static com.auth0.android.lock.views.ViewUtils.Corners.ALL;
 import static com.auth0.android.lock.views.ViewUtils.Corners.ONLY_LEFT;
 import static com.auth0.android.lock.views.ViewUtils.Corners.ONLY_RIGHT;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 abstract class ViewUtils {
 
@@ -88,24 +89,12 @@ abstract class ViewUtils {
     static ShapeDrawable getRoundedBackground(@NonNull View view, @ColorInt int color, @Corners int corners) {
         int r = view.getResources().getDimensionPixelSize(R.dimen.com_auth0_lock_widget_corner_radius);
         float[] outerR = new float[0];
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            boolean languageRTL = TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL;
-            if (languageRTL) {
-                //noinspection WrongConstant
-                corners = -corners;
-            }
+        boolean languageRTL = TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL;
+        if (languageRTL) {
+            //noinspection WrongConstant
+            corners = -corners;
         }
-        switch (corners) {
-            case ONLY_LEFT:
-                outerR = new float[]{r, r, 0, 0, 0, 0, r, r};
-                break;
-            case ONLY_RIGHT:
-                outerR = new float[]{0, 0, r, r, r, r, 0, 0};
-                break;
-            case ALL:
-                outerR = new float[]{r, r, r, r, r, r, r, r};
-                break;
-        }
+        outerR = new float[]{r, r, r, r, r, r, r, r};
 
         RoundRectShape rr = new RoundRectShape(outerR, null, null);
         ShapeDrawable drawable = new ShapeDrawable(rr);

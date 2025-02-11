@@ -25,8 +25,9 @@
 package com.auth0.android.lock.views;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.Nullable;
 
 public abstract class FormView extends RelativeLayout {
 

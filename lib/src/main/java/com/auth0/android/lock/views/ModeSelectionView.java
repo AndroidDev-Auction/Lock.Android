@@ -27,14 +27,15 @@ package com.auth0.android.lock.views;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.auth0.android.lock.R;
 import com.auth0.android.lock.internal.configuration.AuthMode;
+import com.google.android.material.tabs.TabLayout;
 
 @SuppressLint("ViewConstructor")
 public class ModeSelectionView extends LinearLayout implements TabLayout.OnTabSelectedListener {

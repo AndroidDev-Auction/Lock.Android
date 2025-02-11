@@ -29,12 +29,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.auth0.android.Auth0;
+import com.auth0.android.auth0.BuildConfig;
 import com.auth0.android.authentication.ParameterBuilder;
 import com.auth0.android.lock.LockCallback.LockEvent;
 import com.auth0.android.lock.internal.configuration.Options;
@@ -230,8 +232,8 @@ public class Lock {
             Log.v(TAG, "Lock instance created");
 
             if (options.getAccount().getTelemetry() != null) {
-                Log.v(TAG, String.format("Using Telemetry %s (%s) and Library %s", Constants.LIBRARY_NAME, com.auth0.android.lock.BuildConfig.VERSION_NAME, com.auth0.android.auth0.BuildConfig.VERSION_NAME));
-                options.getAccount().setTelemetry(new Telemetry(Constants.LIBRARY_NAME, com.auth0.android.lock.BuildConfig.VERSION_NAME, com.auth0.android.auth0.BuildConfig.VERSION_NAME));
+                Log.v(TAG, String.format("Using Telemetry %s (%s) and Library %s", Constants.LIBRARY_NAME, BuildConfig.VERSION_NAME, com.auth0.android.auth0.BuildConfig.VERSION_NAME));
+                options.getAccount().setTelemetry(new Telemetry(Constants.LIBRARY_NAME, BuildConfig.VERSION_NAME, com.auth0.android.auth0.BuildConfig.VERSION_NAME));
             }
 
             final Lock lock = new Lock(options, callback);
