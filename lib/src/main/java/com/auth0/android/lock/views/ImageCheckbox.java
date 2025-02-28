@@ -35,7 +35,7 @@ public class ImageCheckbox extends AppCompatImageButton implements Checkable {
     }
 
     public ImageCheckbox(@NonNull Context context, @NonNull AttributeSet attrs) {
-        this(context, attrs, R.attr.imageButtonStyle);
+        this(context, attrs, androidx.appcompat.R.attr.imageButtonStyle);
     }
 
     public ImageCheckbox(@NonNull Context context, @NonNull AttributeSet attrs, int defStyleAttr) {

@@ -42,12 +42,17 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.auth0.android.Auth0;
@@ -133,6 +138,7 @@ public class LockActivity extends AppCompatActivity implements ActivityCompat.On
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         if (!hasValidLaunchConfig()) {
             return;
@@ -147,16 +153,30 @@ public class LockActivity extends AppCompatActivity implements ActivityCompat.On
         setContentView(R.layout.com_auth0_lock_activity_lock);
         resultMessage = findViewById(R.id.com_auth0_lock_result_message);
         ScrollView rootView = findViewById(R.id.com_auth0_lock_content);
+        RelativeLayout comAuth0LockContainer = findViewById(R.id.com_auth0_lock_container);
+        enableEdgeToEdge(comAuth0LockContainer);
         lockView = new ClassicLockView(this, lockBus, options.getTheme());
         RelativeLayout.LayoutParams lockViewParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         lockView.setLayoutParams(lockViewParams);
-        lockView.setBackgroundColor(Color.parseColor(options.getTheme().getBackgroundColor(this)));
+        final String bgColor = options.getTheme().getBackgroundColor(this);
+        if (!TextUtils.isEmpty(bgColor)) {
+            lockView.setBackgroundColor(Color.parseColor(bgColor));
+        }
         rootView.addView(lockView);
 
         loginErrorBuilder = new LoginErrorMessageBuilder(R.string.com_auth0_lock_db_login_error_message, R.string.com_auth0_lock_db_login_error_invalid_credentials_message);
         signUpErrorBuilder = new SignUpErrorMessageBuilder();
 
         lockBus.post(new FetchApplicationEvent());
+    }
+
+    private void enableEdgeToEdge(final View view) {
+        ViewCompat.setOnApplyWindowInsetsListener(view, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(0, insets.top, 0, insets.bottom);
+            WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView()).setAppearanceLightStatusBars(true);
+            return windowInsets;
+        });
     }
 
     private boolean hasValidLaunchConfig() {
